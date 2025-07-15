@@ -1,2 +1,3 @@
 django>=5.0.1,<6.0.0 # 제일 앞 자리 수 변경은 큰 변동이 있을 수 있어서 제한함
 djangorestframework>=3.14.0,<4.0.0
+psycopg2-binary>=2.9.9,<3.0.0

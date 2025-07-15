@@ -20,5 +20,15 @@ Docker Container
 - 실행 중인 환경에 관계 없이 언제나 동일하게 실행될 것을 보증
 
 # CI/CD와 Github Actions
+- CI(Continuous Integration, 지속적인 통합) : 코드의 변경 사항이 정기적으로 빌드 및 테스트 되어 공유 레포지토리에 통합되는 것
+- CD(Continuous Delivery & Continuous Deployment, 지속적인 서비스 제공 & 배포)
+  - Continuous Delivery는 공유 레포지토리로 자동 Release 하는 것
+  - Continuous Deployment는 배포까지 자동으로 릴리즈 하는 것
+<br><br>
+- Github Actions은 CI/CD의 한 종류로 GitHub 플랫폼에서 제공
+- 프로젝트의 .github/workflows/*.yml 파일을 이용해서 프로세스들을 진행
 
 # PostgreSQL의 장점
+Django의 공식 문서에서도 PostgreSQL이 가장 완전하게 지원하는 DB라고 명시
+일부 Django 기능은 PostgreSQL에서만 최적으로 동작하고
+PostgreSQL의 고급 기능도 Django에 잘 통합 (복잡한 데이터 구조, 전문 검색 기능)

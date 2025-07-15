@@ -1,6 +1,7 @@
 version: "3.11"
+
 services:
-  app:
+  app: # Django 컨테이너
     build:
       context: .
       args:
@@ -10,3 +11,19 @@ services:
     volumes:
       - ./app:/app
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=youtube
+      - DB_USER=daeun
+      - DB_PASS=0070
+    depends_on:
+      - db # db가 준비가 되면 실행
+
+  db: # PostgreSQL Database 컨테이너
+    image: postgresql:16-alpine
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=youtube
+      - POSTGRES_USER=daeun
+      - POSTGRES_PASSWORD=0070
