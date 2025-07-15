@@ -1,0 +1,31 @@
+# Github Actions CI/CD(코드리뷰/배포)
+---
+name: Checks # Workflow 이름
+
+on: [push] # git push하는 순간 활성화
+
+jobs:
+  test-lint:
+    name: Test and Lint
+    runs-on: ubuntu-latest # 코드를 테스트할 작업 환경
+    steps: # 작업 단계
+      - name: Install Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+          docker-compose --version
+
+      - name: Login in to Docker Hub
+        uses: docker/login-action@v1 # 모듈실행
+        with:
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Check Out - pull repository code # Github의 코드를 작업 환경으로
+        uses: actions/checkout@v2
+
+      - name: Run Test-Code
+        run: docker-compose run --rm app sh -c 'python manage.py test'
+
+      - name: Run Flask8 for Lint Check
+        run: docker-compose run --rm app sh -c 'flake8'
