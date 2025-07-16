@@ -33,3 +33,11 @@ Github Actions
 # PostgreSQL의 장점
 Django의 공식 문서에서도 PostgreSQL이 가장 완전하게 지원하는 DB라고 명시<br>
 일부 Django 기능은 PostgreSQL에서만 최적으로 동작하고, PostgreSQL의 고급 기능(복잡한 데이터 구조, 전문 검색 기능)도 Django에 잘 통합
+<br><br><br>
+# YouTube 모델 폴더 ( 각각 어떤 역할을 하는지 정리)
+- users:
+- videos:
+- reactions:
+- comments:
+- subscriptions:
+- common:
