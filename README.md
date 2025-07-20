@@ -50,6 +50,7 @@ Django의 공식 문서에서도 PostgreSQL이 가장 완전하게 지원하는 
 - title
 - description
 - link
+- category
 - views_count
 - thumbnail
 - video_file: link
